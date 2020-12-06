@@ -46,7 +46,7 @@ exports.signin = (req, res) => {
           { _id: user._id, role: user.role },
           process.env.JWT_SECRET,
           {
-            expiresIn: "1h",
+            expiresIn: "1000h",
           }
         );
         const { _id, name, email, role } = user;

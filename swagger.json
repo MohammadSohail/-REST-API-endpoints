@@ -1,0 +1,148 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Library Management",
+        "description": "Library Management Application API",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:2000",
+    "tags": [
+        {
+            "name": "Book",
+            "description": "API for books in the system"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    
+    "paths": {
+        "api/book/create": {
+            "post": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Only Librarian Create new book in system",
+                "description": "Create new book in system",
+                "parameters": [
+                    {
+                        "name": "book",
+                        "in": "body",
+                        "description": "book that we want to create",
+                        "schema": {
+                            "$ref": "#/definitions/Book"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "201": {
+                        "description": "New book is created",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "api/book/getBooks": {
+            "get": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Get all books in system",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Book"
+                        }
+                    }
+                }
+            }
+        },
+        "api/book/update/{id}": {
+            "patch": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Only Librarian can Update book by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the user",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/Book"
+                        }
+                    }
+                }
+            }
+        },
+        "api/book/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Books"
+                ],
+                "summary": "Only Librarian can Delete book by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id of the book",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/Book"
+
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Book": {
+            "required": [
+                "name",
+                "author",
+                "genre"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "author":{
+                    "type":"string"
+                },
+                "genre":{
+                    "type":"string"
+                }
+            }
+        }
+    }
+}

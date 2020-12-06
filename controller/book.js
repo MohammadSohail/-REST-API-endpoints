@@ -30,7 +30,7 @@ exports.createBook = (req, res) => {
   book.save((error, book) => {
     if (error) return res.status(400).json({ error });
     if (book) {
-      res.status(200).json({ book });
+      res.status(201).json({ book });
     }
   });
   // res.status(200).json({

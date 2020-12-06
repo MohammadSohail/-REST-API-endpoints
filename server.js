@@ -14,6 +14,7 @@ const express = require("express");
 const env = require("dotenv");
 const app = express();
 const mongoose = require("mongoose");
+const swaggerUI = require("swagger-ui-express");
 
 const authRoutes = require("./routes/auth");
 const bookRoutes = require("./routes/book");
@@ -53,6 +54,9 @@ app.use(express.json());
 app.use("/api", authRoutes);
 app.use("/api", bookRoutes);
 app.use("/api", cartRoutes);
+
+const swaggerDocument = require("./swagger.json");
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.listen(process.env.PORT, () => {
   console.log(`server is running on port ${process.env.PORT}`);
