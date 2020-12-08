@@ -27,7 +27,7 @@
     ],
     
     "paths": {
-        "api/book/create": {
+        "/api/book/create": {
             "post": {
                 "tags": [
                     "Books"
@@ -57,7 +57,7 @@
                 }
             }
         },
-        "api/book/getBooks": {
+        "/api/book/getBooks": {
             "get": {
                 "tags": [
                     "Books"
@@ -73,7 +73,7 @@
                 }
             }
         },
-        "api/book/update/{id}": {
+        "/api/book/update/{id}": {
             "patch": {
                 "tags": [
                     "Books"
@@ -98,7 +98,7 @@
                 }
             }
         },
-        "api/book/delete/{id}": {
+        "/api/book/delete/{id}": {
             "delete": {
                 "tags": [
                     "Books"
