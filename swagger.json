@@ -146,3 +146,5 @@
         }
     }
 }
+
+Swagger Link: http://localhost:2000/api-docs/#/Books/get_api_book
